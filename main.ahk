@@ -10,7 +10,7 @@ Gui, Add, Tab2, x10 y10 w400 h300, Main|COMMON FIXES|Credits
 ; Main Tab
 Gui, Tab, Main
 Gui, Add, Text,, Select a potion to auto craft:
-Gui, Add, DropDownList, vSelectedScript gUpdateScript Choose1, None|Heavenly Potion I|Heavenly Potion II|Warp Potion
+Gui, Add, DropDownList, vSelectedScript gUpdateScript Choose1, None|Fortune Potion I|Fortune Potion II|Fortune Potion III|Haste Potion I|Haste Potion II|Haste Potion III|Heavenly Potion I|Heavenly Potion II|Warp Potion
 Gui, Add, Button, gStartScript, Start (F1)
 Gui, Add, Button, gStopScript, Stop (F3)
 
