@@ -1,6 +1,7 @@
 #NoEnv
 #SingleInstance Force
 SetWorkingDir %A_ScriptDir%  ; Set working directory to the script's location
+Menu, Tray, Icon, %A_ScriptDir%\assets\macroicon.ico
 
 global SelectedScript := ""   ; Variable to store the selected script
 global RunningPID := ""       ; Variable to store the running script's process ID
@@ -25,6 +26,7 @@ Gui, Tab, Credits
 Gui, Add, Text,, xVapure's Potion Crafter v1
 Gui, Add, Text,, Developed by xVapure
 Gui, Add, Text,, Head over to README.txt to learn how to use.
+Gui, Add, Picture, x249 y40 w150 h150, assets\xvapure.ico  ; Place icon in the red box area
 
 Gui, Show,, xVapure's Auto Potion Crafter  ;
 
