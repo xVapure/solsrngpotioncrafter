@@ -5,7 +5,7 @@ SetWorkingDir %A_ScriptDir%  ; Set working directory to the script's location
 global SelectedScript := ""   ; Variable to store the selected script
 global RunningPID := ""       ; Variable to store the running script's process ID
 
-Gui, Add, Tab2, x10 y10 w400 h300, Main|COMMON FIXES|Credits
+Gui, Add, Tab2, x10 y10 w400 h300, Main|COMMON FIXES/faqs|Credits
 
 ; Main Tab
 Gui, Tab, Main
@@ -15,9 +15,10 @@ Gui, Add, Button, gStartScript, Start (F1)
 Gui, Add, Button, gStopScript, Stop (F3)
 
 ; COMMON FIXES Tab
-Gui, Tab, COMMON FIXES
+Gui, Tab, COMMON FIXES/faqs
 Gui, Add, Text,, -  Make sure that your screen resolution is at 1920x1080, for best use.
 Gui, Add, Text,, -  Make sure that Roblox is not on full screen mode.
+Gui, Add, Text,, -  If you cannot f1 to start and f3 to stop, hold the fn + f1/fn + f3.
 
 ; Credits Tab
 Gui, Tab, Credits
