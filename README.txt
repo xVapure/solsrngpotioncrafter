@@ -7,4 +7,4 @@ How to use (works best on 1920x1080 150% scale and Roblox non full screen):
 - Open the macro and select the potion to auto craft.
 
 
-https://youtu.be/EaCeYt5GDM0 tutorial.
+https://youtu.be/EaCeYt5GDM0 <- Tutorial on how to use.
