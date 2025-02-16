@@ -6,5 +6,6 @@ How to use (works best on 1920x1080 150% scale and Roblox non full screen):
 - Select the potion you want to craft IN GAME (make sure to auto add as well).
 - Open the macro and select the potion to auto craft.
 
+Keep note that not all screens all the same, so sometimes even with a different resolution or even same resolution try adjusting the scale a little bit (for example: 100% -> 150%)
 
 https://youtu.be/EaCeYt5GDM0 <- Tutorial on how to use.
