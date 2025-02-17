@@ -4,7 +4,7 @@ Loop {
     SetTitleMatchMode, 2
     CoordMode, Mouse, Window
 
-    ; Get screen resolution
+    ; Get current screen resolution
     screenWidth := A_ScreenWidth
     screenHeight := A_ScreenHeight
 
@@ -13,46 +13,49 @@ Loop {
     scaleY := screenHeight / 1080
 
     Sleep, % 1375 // Playspeed
-
-    MouseClick, L, floor(805 * scaleX), floor(617 * scaleY), 11
+    ClickRepeated(805, 617, 11)
 
     Sleep, % 234 // Playspeed
-
-    MouseClick, L, floor(805 * scaleX), floor(617 * scaleY), 6
+    ClickRepeated(805, 617, 6)
 
     Sleep, % 797 // Playspeed
-
-    MouseClick, L, floor(730 * scaleX), floor(678 * scaleY),,, D
-    Send, {Blind}{Ctrl Down}a{Backspace}{Ctrl Up}
-    MouseClick, L, floor(730 * scaleX), floor(678 * scaleY),,, U
-
-    Sleep, % 453 // Playspeed
-
-    Send, {Blind}125
+    ClickAndEdit(730, 678, "125")
 
     Sleep, % 1109 // Playspeed
-
-    MouseClick, L, floor(802 * scaleX), floor(670 * scaleY), 11
+    ClickRepeated(802, 670, 11)
 
     Sleep, % 468 // Playspeed
-
     Send, {Blind}{WheelDown 45}{WheelUp}{WheelDown 15}
 
     Sleep, % 969 // Playspeed
-
-    MouseClick, L, floor(804 * scaleX), floor(756 * scaleY), 9
+    ClickRepeated(804, 756, 9)
 
     Sleep, % 563 // Playspeed
-
-    MouseClick, L, floor(804 * scaleX), floor(756 * scaleY), 2
+    ClickRepeated(804, 756, 2)
 
     Sleep, % 281 // Playspeed
-
     Send, {Blind}{WheelUp 8}{WheelDown}{WheelUp 33}
 
     Sleep, % 1078 // Playspeed
-
-    MouseClick, L, floor(596 * scaleX), floor(566 * scaleY), 12
+    ClickRepeated(596, 566, 12)
 
     Sleep, 1000 // Playspeed
+}
+
+; Function for repeated clicks
+ClickRepeated(x, y, count) {
+    global scaleX, scaleY
+    Loop, % count {
+        MouseClick, L, % Floor(x * scaleX), % Floor(y * scaleY)
+    }
+}
+
+; Function for clicking, selecting, and editing text
+ClickAndEdit(x, y, text) {
+    global scaleX, scaleY
+    MouseClick, L, % Floor(x * scaleX), % Floor(y * scaleY),, , D
+    Send, {Blind}{Ctrl Down}a{Backspace}{Ctrl Up}
+    MouseClick, L, % Floor(x * scaleX), % Floor(y * scaleY),, , U
+    Sleep, 453 // Playspeed
+    Send, {Blind}%text%
 }
