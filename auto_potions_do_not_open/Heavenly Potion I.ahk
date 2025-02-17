@@ -4,7 +4,7 @@ Loop {
     SetTitleMatchMode, 2
     CoordMode, Mouse, Window
 
-    ; Get screen resolution
+    ; Get current screen resolution
     screenWidth := A_ScreenWidth
     screenHeight := A_ScreenHeight
 
@@ -14,14 +14,13 @@ Loop {
 
     Sleep, % 907 // Playspeed
 
-    ; Scaled mouse clicks
-    MouseClick, L, floor(742 * scaleX), floor(622 * scaleY)
-    MouseClick, L, floor(742 * scaleX), floor(622 * scaleY)
-    MouseClick, L, floor(742 * scaleX), floor(622 * scaleY),,, D
+    ; Scaled mouse clicks at (742, 622)
+    ClickScaled(742, 622, "L", 2)
+    ClickScaled(742, 622, "L", 1, "D")
 
     Send, {Blind}{Ctrl Down}a{Backspace}{Ctrl Up}
 
-    MouseClick, L, floor(742 * scaleX), floor(622 * scaleY),,, U
+    ClickScaled(742, 622, "L", 1, "U")
 
     Sleep, % 235 // Playspeed
 
@@ -29,16 +28,8 @@ Loop {
 
     Sleep, % 1078 // Playspeed
 
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
-    MouseClick, L, floor(807 * scaleX), floor(618 * scaleY)
+    ; Click (807, 618) multiple times
+    ClickRepeated(807, 618, 10)
 
     Sleep, % 312 // Playspeed
 
@@ -46,16 +37,8 @@ Loop {
 
     Sleep, % 766 // Playspeed
 
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
-    MouseClick, L, floor(812 * scaleX), floor(760 * scaleY)
+    ; Click (812, 760) multiple times
+    ClickRepeated(812, 760, 10)
 
     Sleep, % 312 // Playspeed
 
@@ -63,17 +46,23 @@ Loop {
 
     Sleep, % 859 // Playspeed
 
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
-    MouseClick, L, floor(587 * scaleX), floor(570 * scaleY)
+    ; Click (587, 570) multiple times
+    ClickRepeated(587, 570, 11)
 
     Sleep, 1000 // Playspeed
+}
+
+; Function for scaled mouse clicks
+ClickScaled(x, y, button := "L", times := 1, state := "") {
+    global scaleX, scaleY
+    Loop, % times {
+        MouseClick, %button%, % Floor(x * scaleX), % Floor(y * scaleY),, %state%
+    }
+}
+
+; Function for multiple rapid clicks
+ClickRepeated(x, y, count) {
+    Loop, % count {
+        ClickScaled(x, y)
+    }
 }
