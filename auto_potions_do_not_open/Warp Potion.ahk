@@ -4,7 +4,7 @@ Loop {
     SetTitleMatchMode, 2
     CoordMode, Mouse, Window
 
-    ; Get screen resolution
+    ; Get current screen resolution
     screenWidth := A_ScreenWidth
     screenHeight := A_ScreenHeight
 
@@ -13,29 +13,37 @@ Loop {
     scaleY := screenHeight / 1080
 
     Sleep, % 1031 // Playspeed
-
-    MouseClick, L, floor(814 * scaleX), floor(621 * scaleY), 13
+    ClickRepeated(814, 621, 13)
 
     Sleep, % 234 // Playspeed
-
     Send, {Blind}{WheelDown 38}
 
     Sleep, % 735 // Playspeed
-
-    MouseClick, L, floor(728 * scaleX), floor(757 * scaleY)
-    Send, {Blind}{Ctrl Down}a{Ctrl Up}{Backspace}1000
+    ClickAndEdit(728, 757, "1000")
 
     Sleep, % 1015 // Playspeed
-
-    MouseClick, L, floor(806 * scaleX), floor(760 * scaleY), 10
+    ClickRepeated(806, 760, 10)
 
     Sleep, % 453 // Playspeed
-
     Send, {Blind}{WheelUp 27}
 
     Sleep, % 782 // Playspeed
-
-    MouseClick, L, floor(596 * scaleX), floor(568 * scaleY), 12
+    ClickRepeated(596, 568, 12)
 
     Sleep, 1000 // Playspeed
+}
+
+; Function for repeated clicks
+ClickRepeated(x, y, count) {
+    global scaleX, scaleY
+    Loop, % count {
+        MouseClick, L, % Floor(x * scaleX), % Floor(y * scaleY)
+    }
+}
+
+; Function for clicking, selecting, and entering new text
+ClickAndEdit(x, y, text) {
+    global scaleX, scaleY
+    MouseClick, L, % Floor(x * scaleX), % Floor(y * scaleY)
+    Send, {Blind}{Ctrl Down}a{Ctrl Up}{Backspace}%text%
 }
