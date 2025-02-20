@@ -10,3 +10,4 @@ How to use (works best on 1920x1080 150% scale and Roblox non full screen):
 Keep note that not all screens are the same, so sometimes even with a different resolution or even same resolution try adjusting the scale a little bit (for example: 100% -> 150%)
 
 https://youtu.be/EaCeYt5GDM0 <- Tutorial on how to use.
+https://youtu.be/MkvKHOTCPCw <- How to fix the stop button (f3) when it doesn't work.
