@@ -1,6 +1,7 @@
 How to use (works best on 1920x1080 150% scale and Roblox non full screen):
 - !EXTRACT THE ZIP FILE!
 - !HAVE AUTOHOTKEY INSTALLED! https://www.autohotkey.com/
+- Remember to turn off "auto hide taskbar" mode.
 - Run the macro as administrator if you have issues with the start and stop button.
 - Go to Stella.
 - Open the crafting menu.
