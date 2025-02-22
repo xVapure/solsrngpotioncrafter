@@ -1,6 +1,6 @@
 How to use (works best on 1920x1080 150% scale and Roblox non full screen):
 - !EXTRACT THE ZIP FILE!
-- !HAVE AUTOHOTKEY INSTALLED! https://www.autohotkey.com/
+- !HAVE AUTOHOTKEY INSTALLED! https://www.autohotkey.com/ (v1.1 deprecated)
 - Remember to turn off "auto hide taskbar" mode. (credits to balzac_2.0 for spotting this)
 - Run the macro as administrator if you have issues with the start and stop button.
 - Go to Stella.
