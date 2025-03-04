@@ -8,12 +8,12 @@ global RunningPID := ""
 global StartKey := "F1"
 global StopKey := "F3"
 
-Gui, Add, Tab2, x10 y10 w400 h300, Main|Potion Switcher|Potion Recorder|Discord Webhook|Keybind|Credits
+Gui, Add, Tab2, x10 y10 w400 h300, Main|Potion Switcher|Potion Recorder|Webhook|Keybind|Credits
 
 ; -------- Main Tab --------
 Gui, Tab, Main
 Gui, Add, Text, w380, Select a potion to auto craft:
-Gui, Add, DropDownList, vSelectedScript gUpdateScript Choose1 w380, None|Fortune Potion I|Fortune Potion II|Fortune Potion III|Haste Potion I|Haste Potion II|Haste Potion III|Heavenly Potion I|Heavenly Potion II|Warp Potion
+Gui, Add, DropDownList, vSelectedScript gUpdateScript Choose1 w380, None|Heavenly Potion I|Heavenly Potion II|Warp Potion
 Gui, Add, Button, vStartButton gStartScript w380, Start (F1)
 Gui, Add, Button, vStopButton gStopScript w380, Stop (F3)
 
@@ -26,7 +26,7 @@ Gui, Tab, Potion Recorder
 Gui, Add, Text, w380, Feature is currently being developed.
 
 ; -------- Discord Webhook Tab --------
-Gui, Tab, Discord Webhook
+Gui, Tab, Webhook
 Gui, Add, Text, w380, Feature is currently being developed.
 
 ; -------- Keybind Tab --------
@@ -106,33 +106,6 @@ SetStopKey:
     StopKey := StopKeybind
     Hotkey, %StopKey%, StopRunningScript, On
     GuiControl,, StopButton, Stop (%StopKey%)
-return
-
-ApplyPotionSwitch:
-    GuiControlGet, EnablePotionSwitch
-    GuiControlGet, SwitchThreshold
-    MsgBox, Potion Switcher settings saved: %SwitchThreshold% potions before switching.
-return
-
-StartRecording:
-    MsgBox, Recording started. Perform your crafting actions.
-    ; Placeholder for actual recording logic
-return
-
-StopRecording:
-    MsgBox, Recording stopped.
-    ; Placeholder for stopping the recording
-return
-
-SaveRecording:
-    MsgBox, Recording saved successfully.
-    ; Placeholder for saving logic
-return
-
-SaveWebhookSettings:
-    GuiControlGet, WebhookURL
-    GuiControlGet, EnableWebhook
-    MsgBox, Webhook settings saved. URL: %WebhookURL%
 return
 
 RemoveToolTip:
