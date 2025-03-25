@@ -4,10 +4,11 @@ SetWorkingDir %A_ScriptDir%
 Menu, Tray, Icon, %A_ScriptDir%\assets\macroicon.ico
 
 global SelectedScript := ""
-global RunningPID := ""
+global RunningPID := ""  ; To track the running script process ID
 global StartKey := "F1"
 global StopKey := "F3"
 
+; GUI Setup
 Gui, Add, Tab2, x10 y10 w400 h300, Main|Potion Switcher|Potion Recorder|Webhook|Keybind|Credits
 
 ; -------- Main Tab --------
@@ -16,18 +17,6 @@ Gui, Add, Text, w380, Select a potion to auto craft:
 Gui, Add, DropDownList, vSelectedScript gUpdateScript Choose1 w380, None|Heavenly Potion I|Heavenly Potion II|Warp Potion
 Gui, Add, Button, vStartButton gStartScript w380, Start (F1)
 Gui, Add, Button, vStopButton gStopScript w380, Stop (F3)
-
-; -------- Potion Switcher Tab --------
-Gui, Tab, Potion Switcher
-Gui, Add, Text, w380, Feature is currently being developed.
-
-; -------- Potion Recorder Tab --------
-Gui, Tab, Potion Recorder
-Gui, Add, Text, w380, Feature is currently being developed.
-
-; -------- Discord Webhook Tab --------
-Gui, Tab, Webhook
-Gui, Add, Text, w380, Feature is currently being developed.
 
 ; -------- Keybind Tab --------
 Gui, Tab, Keybind
@@ -58,12 +47,10 @@ StartScript:
     RunSelectedScript()
 return
 
-StopScript:
-    StopRunningScript()
-return
+
 
 F1::RunSelectedScript()
-F3::StopRunningScript()
+F3::StopScript()
 
 RunSelectedScript() {
     global SelectedScript, RunningPID
@@ -71,25 +58,25 @@ RunSelectedScript() {
         MsgBox, Please select a script first.
         return
     }
-    StopRunningScript()
     scriptPath := A_ScriptDir . "\auto_potions_do_not_open\" . SelectedScript . ".ahk"
     if !FileExist(scriptPath) {
         MsgBox, Script not found: %scriptPath%
         return
     }
+    ; Run the selected potion script and get its PID
     Run, %scriptPath%, , , RunningPID
     ToolTip, Running: %SelectedScript%
     SetTimer, RemoveToolTip, -2000
 }
 
-StopRunningScript() {
-    global RunningPID
-    if (RunningPID) {
-        Process, Close, %RunningPID%
-        RunningPID := ""
-        ToolTip, Script stopped.
-        SetTimer, RemoveToolTip, -2000
-    }
+StopScript() {
+    ShowCloseMessage()  ; Show the close message before terminating the process
+    Run, stop.vbs  ; Call your VBScript to stop the AutoHotkey process
+}
+
+ShowCloseMessage() {
+    ToolTip, Closing program... Please wait.
+    SetTimer, RemoveToolTip, -2000
 }
 
 SetStartKey:
@@ -104,7 +91,7 @@ SetStopKey:
     GuiControlGet, StopKeybind
     Hotkey, %StopKey%, Off
     StopKey := StopKeybind
-    Hotkey, %StopKey%, StopRunningScript, On
+    Hotkey, %StopKey%, StopScript, On
     GuiControl,, StopButton, Stop (%StopKey%)
 return
 
