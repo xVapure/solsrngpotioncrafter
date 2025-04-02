@@ -13,7 +13,7 @@ Gui, Add, Tab2, x10 y10 w400 h300, Main|Potion Switcher|Potion Recorder|Webhook|
 ; -------- Main Tab --------
 Gui, Tab, Main
 Gui, Add, Text, w380, Select a potion to auto craft:
-Gui, Add, DropDownList, vSelectedScript gUpdateScript Choose1 w380, None|Heavenly Potion I|Heavenly Potion II|Warp Potion
+Gui, Add, DropDownList, vSelectedScript gUpdateScript Choose1 w380, None|Heavenly Potion|Warp Potion|Diver Potion|Godlike Potion|Hades Potion|Jewelry Potion|Poseidon Potion|Zeus Potion|Potion of Bound|Rage Potion
 Gui, Add, Button, vStartButton gStartScript w380, Start (F1)
 Gui, Add, Button, vStopButton gStopScript w380, Stop (F3)
 
