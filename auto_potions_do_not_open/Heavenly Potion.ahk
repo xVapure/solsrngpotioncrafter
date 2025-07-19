@@ -1,47 +1,146 @@
-Playspeed := 2
 
-Loop
+Playspeed:=2 
+
+Loop, 
 {
-    SetTitleMatchMode, 2
-    CoordMode, Mouse, Window
-    tt := "Roblox ahk_class WINDOWSCLIENT"
-    WinWait, %tt%
-    IfWinNotActive, %tt%, WinActivate, %tt%
 
-    Sleep, % 1625 // Playspeed
-    MouseClick, L, 713, 633
-    Send, {Blind}{Ctrl Down}a{Ctrl Up}{Backspace 3}250
+SetTitleMatchMode, 2
+CoordMode, Mouse, Window
 
-    Sleep, % 1328 // Playspeed
-    Loop, 7 {
-        MouseClick, L, 784, 634
-    }
+      tt = Roblox ahk_class WINDOWSCLIENT
+      WinWait, %tt%
+      IfWinNotActive, %tt%,, WinActivate, %tt%
 
-    Sleep, % 1609 // Playspeed
-    Loop, 8 {
-        MouseClick, L, 783, 687
-    }
+  Sleep, % 1156 //playspeed
 
-    Sleep, % 1234 // Playspeed
-    Loop, 8 {
-        MouseClick, L, 783, 742
-    }
+MouseClick, L, 720, 631
 
-    Sleep, % 843 // Playspeed
-    Send, {Blind}{WheelDown 26}
+MouseClick, L, 720, 631
 
-    Sleep, % 578 // Playspeed
-    Loop, 9 {
-        MouseClick, L, 794, 770
-    }
+MouseClick, L, 720, 631
 
-    Sleep, % 343 // Playspeed
-    Send, {Blind}{WheelUp 7}{WheelDown}{WheelUp 19}
+Send, {Blind}{Ctrl Down}a{Ctrl Up}{Backspace}250
 
-    Sleep, % 1125 // Playspeed
-    Loop, 7 {
-        MouseClick, L, 584, 579
-    }
+  Sleep, % 1235 //playspeed
 
-    Sleep, 1000 // Playspeed
+MouseClick, L, 789, 625
+
+MouseClick, L, 789, 625
+
+MouseClick, L, 789, 625
+
+MouseClick, L, 789, 625
+
+  Sleep, % 1625 //playspeed
+
+MouseClick, L, 791, 678
+
+MouseClick, L, 791, 678
+
+MouseClick, L, 791, 678
+
+MouseClick, L, 791, 678
+
+MouseClick, L, 791, 678
+
+MouseClick, L, 791, 678
+
+MouseClick, L, 791, 678
+
+  Sleep, % 1093 //playspeed
+
+MouseClick, L, 793, 733
+
+MouseClick, L, 793, 733
+
+MouseClick, L, 793, 733
+
+MouseClick, L, 793, 733
+
+MouseClick, L, 793, 733
+
+MouseClick, L, 793, 733
+
+MouseClick, L, 793, 733
+
+MouseClick, L, 793, 733
+
+  Sleep, % 750 //playspeed
+
+Send, {Blind}{WheelDown}{WheelDown}{WheelDown}{WheelDown}{WheelDown}{WheelDown}{WheelDown}{WheelDown}
+
+  Sleep, % 1500 //playspeed
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+MouseClick, L, 795, 706
+
+  Sleep, % 969 //playspeed
+
+MouseClick, L, 791, 761
+
+MouseClick, L, 791, 761
+
+MouseClick, L, 791, 761
+
+MouseClick, L, 791, 761
+
+MouseClick, L, 791, 761
+
+MouseClick, L, 791, 761
+
+MouseClick, L, 791, 761
+
+MouseClick, L, 791, 761
+
+MouseClick, L, 791, 761
+
+MouseClick, L, 791, 761
+
+  Sleep, % 390 //playspeed
+
+Send, {Blind}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}{WheelUp}
+
+  Sleep, % 875 //playspeed
+
+MouseClick, L, 580, 565
+
+MouseClick, L, 580, 565
+
+MouseClick, L, 580, 565
+
+MouseClick, L, 580, 565
+
+MouseClick, L, 580, 565
+
+MouseClick, L, 580, 565
+
+MouseClick, L, 580, 565
+
+MouseClick, L, 580, 565
+
+MouseClick, L, 580, 565
+
+  Sleep, 1000  //PlaySpeed 
+
 }
